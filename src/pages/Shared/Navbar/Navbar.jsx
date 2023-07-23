@@ -5,10 +5,12 @@ const Navbar = () => {
     const navOptions = (
         <>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/allinstructors">Instructors</Link></li>
-            <li><Link to="/allclasses">Classes</Link></li>
+            <li><Link to="/colleges">Colleges</Link></li>
+            <li><Link to="/admission">Admission</Link></li>
+            <li><Link to="/mycollege">My College</Link></li>
         </>
     );
+
     return (
         <>
             <div className="navbar bg-base-100">
@@ -21,7 +23,10 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">AcademiGate</a>
+                    <Link to="/" className="font-extrabold text-3xl">
+                        AcademiGate
+                    </Link>
+
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
