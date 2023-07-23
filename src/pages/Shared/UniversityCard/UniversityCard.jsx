@@ -18,22 +18,56 @@ const RatedUniversityCard = ({ item }) => {
     const endDate = formatDate(end); // Format end date
 
     return (
-        <div className="border m-3 rounded-lg space-x-4 p-3 bg-sky-50 border-sky-500">
-            <h3 className="flex justify-center">
-                <img className="pb-3 w-[555px] h-[255px]" src={collegeImage} alt="" />
-            </h3>
-            <div className="font-bold">{collegeName}</div>
+        <div className="border m-3 rounded-lg overflow-hidden shadow-lg bg-white">
+            <div className="relative">
+                <img className="w-full h-48 object-cover" src={collegeImage} alt={collegeName} />
+                
+            </div>
+            <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2">{collegeName}</h3>
+                <p className="">
+                    <span className="font-semibold">Admission Date:</span> <br />
+                    Starts: {startDate} <br />
+                    Ends: {endDate}
+                </p>
 
-            <h3 className="bg-sky-200">
-                Admission date: <br />
-                Starts: {startDate}  <br />
-                Ends: {endDate}
-            </h3>
+                <div className="mt-4">
+                    <h4 className="text-lg font-semibold mb-2">Upcoming Events:</h4>
+                    <ul className="list-disc list-inside">
+                        {events.map((event, index) => (
+                            <li key={index} className="text-gray-600 mb-1">
+                                {event.eventName} - {formatDate(event.date)} - {event.location}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
-            <div className="card-actions flex justify-center p-3">
-                <Link to={`/colleges/${collegeId}`}>
-                    <button className="btn btn-primary">View details</button>
-                </Link>
+                <div className="mt-4">
+                    <h4 className="text-lg font-semibold mb-2">Recent Research:</h4>
+                    <ul className="list-disc list-inside">
+                        {research.map((researchItem, index) => (
+                            <li key={index} className="text-gray-600 mb-1">
+                                {researchItem.title} - Authors: {researchItem.authors.join(", ")} -{" "}
+                                {formatDate(researchItem.publicationDate)}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="mt-4">
+                    <h4 className="text-lg font-semibold mb-2">Sports Facilities:</h4>
+                    {sports.map((sportItem, index) => (
+                        <div key={index} className="text-gray-600 mb-1">
+                            <span className="font-semibold">{sportItem.category}</span>: {sportItem.facilities.join(", ")}
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-4 text-center">
+                    <Link to={`/colleges/${collegeId}`}>
+                        <button className="btn btn-primary">View Details</button>
+                    </Link>
+                </div>
             </div>
         </div>
     );
