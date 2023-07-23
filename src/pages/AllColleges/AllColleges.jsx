@@ -17,7 +17,7 @@ const AllColleges = () => {
 
     return (
         <div>
-            <h3>All colleges</h3>
+           
             <div className="grid md:grid-cols-3 gap-4">
                 {
                     colleges.map(item => <UniversityCard
