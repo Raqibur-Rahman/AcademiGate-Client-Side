@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import RatedUniversityCard from "../../Shared/RatedUniversityCard/RatedUniversityCard";
+import UniversityCard from "../../Shared/UniversityCard/UniversityCard";
+import { Link } from "react-router-dom";
 
 const RatedUniversity = () => {
 
@@ -33,11 +34,16 @@ const RatedUniversity = () => {
 
                 <div className="grid md:grid-cols-3 gap-4">
                     {
-                        topThreeUniversities.map(item => <RatedUniversityCard
+                        topThreeUniversities.map(item => <UniversityCard
                             key={item.collegeId}
                             item={item}
-                        ></RatedUniversityCard>)
+                        ></UniversityCard>)
                     }
+                </div>
+                <div className="card-actions flex justify-center p-3">
+                    <Link to='/colleges' >
+                        <button className="btn btn-primary">View All Colleges</button>
+                    </Link>
                 </div>
 
             </section>
