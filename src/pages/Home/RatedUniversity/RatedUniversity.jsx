@@ -4,13 +4,22 @@ import RatedUniversityCard from "../../Shared/RatedUniversityCard/RatedUniversit
 
 const RatedUniversity = () => {
 
-    const [university, setUniversity] = useState([]);
+    const [universities, setUniversity] = useState([]);
 
     useEffect(() => {
         fetch('../../../../public/UniversityData.json')
             .then(res => res.json())
             .then(data => setUniversity(data))
     }, [])
+
+
+    // Sort the universities based on the rating in descending order
+    const sortedUniversities = universities.sort(
+        (a, b) => b.collegeRating - a.collegeRating
+    );
+
+    // Select only the top three universities
+    const topThreeUniversities = sortedUniversities.slice(0, 3);
 
 
     return (
@@ -24,7 +33,7 @@ const RatedUniversity = () => {
 
                 <div className="grid md:grid-cols-3 gap-4">
                     {
-                        university.map(item => <RatedUniversityCard
+                        topThreeUniversities.map(item => <RatedUniversityCard
                             key={item.collegeId}
                             item={item}
                         ></RatedUniversityCard>)

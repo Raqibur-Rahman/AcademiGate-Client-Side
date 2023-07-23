@@ -2,12 +2,12 @@
 const RatedUniversityCard = ({ item }) => {
     const { collegeName, collegeImage, admissionDates, events, research, sports } = item;
     return (
-        <div className="border m-3 rounded-lg space-x-4 p-3 bg-orange-50 border-amber-500">
+        <div className="border m-3 rounded-lg space-x-4 p-3 bg-sky-50 border-sky-500">
             <h3 className="flex justify-center">
-                <img className="w-[115px]" src={collegeImage} alt="" />
+                <img className="pb-3" src={collegeImage} alt="" />
             </h3>
-            <h3>
-                <span className="font-bold">Name:</span> {collegeName}
+            <h3 className="font-bold p-1">
+                {collegeName}
             </h3>
             {/* <h3>
                 <span className="font-bold">Number of Classes: </span>{" "}
