@@ -66,7 +66,7 @@ const Navbar = () => {
                         </label>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-100"
                         >
                             <li>
                                 <Link to="/">Home</Link>
@@ -80,6 +80,28 @@ const Navbar = () => {
                             <li>
                                 <Link to="/mycollege">My College</Link>
                             </li>
+                            <li>
+                                {/* Login button */}
+                                <Link to="/login">
+                                    Login
+                                </Link>
+                            </li>
+                            <div className="navbar-end">
+                                <div className="flex items-center space-x-4">
+                                    {/* Search box */}
+                                    <input
+                                        type="text"
+                                        placeholder="Search for a college"
+                                        className="border rounded-lg py-1 px-2"
+                                        value={searchQuery}
+                                        onChange={handleSearchInputChange}
+                                    />
+                                    <button className="sm-btn btn-primary rounded-md" onClick={handleSearch}>
+                                        Search
+                                    </button>
+
+                                </div>
+                            </div>
                         </ul>
                     </div>
                     <Link to="/" className="font-extrabold text-3xl">
@@ -101,26 +123,27 @@ const Navbar = () => {
                             <Link to="/mycollege">My College</Link>
                         </li>
                     </ul>
-                </div>
-                <div className="navbar-end">
-                    <div className="flex items-center space-x-4">
-                        {/* Search box */}
-                        <input
-                            type="text"
-                            placeholder="Search for a college"
-                            className="border rounded-lg py-1 px-2"
-                            value={searchQuery}
-                            onChange={handleSearchInputChange}
-                        />
-                        <button className="btn btn-primary" onClick={handleSearch}>
-                            Search
-                        </button>
-                        {/* Login button */}
-                        <Link to="/login">
-                            <button className="btn btn-primary">Login</button>
-                        </Link>
+                    <div className="navbar-end">
+                        <div className="flex items-center space-x-4">
+                            {/* Search box */}
+                            <input
+                                type="text"
+                                placeholder="Search for a college"
+                                className="border rounded-lg py-1 px-2"
+                                value={searchQuery}
+                                onChange={handleSearchInputChange}
+                            />
+                            <button className="btn btn-primary" onClick={handleSearch}>
+                                Search
+                            </button>
+                            {/* Login button */}
+                            <Link to="/login">
+                                <button className="btn btn-primary">Login</button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </>
     );
