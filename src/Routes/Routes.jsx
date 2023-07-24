@@ -7,6 +7,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AllColleges from "../pages/AllColleges/AllColleges";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import UniversityDetailsCard from "../pages/UniversityDetails/UniversityDetailsCard";
 
 
 
@@ -33,7 +34,13 @@ export const router = createBrowserRouter([
             ,
             {
                 path: '/signup',
-                element:<SignUp></SignUp>
+                element: <SignUp></SignUp>
+            }, 
+            {
+                path: '/colleges/:id',
+                element: <UniversityDetailsCard></UniversityDetailsCard>,
+                loader: ({ params }) => fetch(`http://localhost:5000/colleges/${params.id}`)
+
             }
         ]
 

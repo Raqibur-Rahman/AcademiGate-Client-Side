@@ -1,8 +1,17 @@
+import { useLoaderData } from "react-router-dom";
 
-import { Link } from "react-router-dom";
-
-const RatedUniversityCard = ({ item }) => {
-    const { _id, collegeName, collegeImage, admissionDates, events, research, sports } = item;
+const UniversityDetailsCard = () => {
+    const item = useLoaderData();
+    const {
+        collegeName,
+        collegeImage,
+        collegeRating,
+        admissionDates,
+        events,
+        research,
+        sports,
+        admissionProcess,
+    } = item;
 
     // Get the start and end dates from the admissionDates array
     const { start, end } = admissionDates[0];
@@ -19,13 +28,16 @@ const RatedUniversityCard = ({ item }) => {
 
     return (
         <div className="border m-3 rounded-lg overflow-hidden shadow-lg bg-white">
-            <div className="relative">
-                <img className="w-full h-48 object-cover" src={collegeImage} alt={collegeName} />
-                
+            <div className="relative bg-blue-500">
+                <img className="w-full h-48 object-cover rounded-t-lg" src={collegeImage} alt={collegeName} />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-40 rounded-t-lg"></div>
+                <div className="absolute inset-x-0 bottom-0 p-4 text-white text-center font-bold">
+                    <h3 className="text-3xl font-semibold mb-2">{collegeName}</h3>
+                    <p className="text-gray-300">College Rating: {collegeRating}</p>
+                </div>
             </div>
-            <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2">{collegeName}</h3>
-                <p className="">
+            <div className="p-4 bg-gray-50">
+                <p className="text-lg font-semibold mb-2">
                     <span className="font-semibold">Admission Date:</span> <br />
                     Starts: {startDate} <br />
                     Ends: {endDate}
@@ -36,7 +48,8 @@ const RatedUniversityCard = ({ item }) => {
                     <ul className="list-disc list-inside">
                         {events.map((event, index) => (
                             <li key={index} className="text-gray-600 mb-1">
-                                {event.eventName} - {formatDate(event.date)} - {event.location}
+                                <span className="font-semibold">{event.eventName}</span> - {formatDate(event.date)} - {event.location}
+                                <p className="text-sm text-gray-500">{event.description}</p>
                             </li>
                         ))}
                     </ul>
@@ -47,8 +60,9 @@ const RatedUniversityCard = ({ item }) => {
                     <ul className="list-disc list-inside">
                         {research.map((researchItem, index) => (
                             <li key={index} className="text-gray-600 mb-1">
-                                {researchItem.title} - Authors: {researchItem.authors.join(", ")} -{" "}
+                                <span className="font-semibold">{researchItem.title}</span> - Authors: {researchItem.authors.join(", ")} -{" "}
                                 {formatDate(researchItem.publicationDate)}
+                                <p className="text-sm text-gray-500">{researchItem.abstract}</p>
                             </li>
                         ))}
                     </ul>
@@ -63,14 +77,13 @@ const RatedUniversityCard = ({ item }) => {
                     ))}
                 </div>
 
-                <div className="mt-4 text-center">
-                    <Link to={`/colleges/${_id}`}>
-                        <button className="btn btn-primary">View Details</button>
-                    </Link>
+                <div className="mt-4">
+                    <h4 className="text-lg font-semibold mb-2">Admission Process:</h4>
+                    <p className="text-gray-600">{admissionProcess}</p>
                 </div>
             </div>
         </div>
     );
 };
 
-export default RatedUniversityCard;
+export default UniversityDetailsCard;

@@ -8,7 +8,7 @@ const RatedUniversity = () => {
     const [universities, setUniversity] = useState([]);
 
     useEffect(() => {
-        fetch('../../../../public/UniversityData.json')
+        fetch('http://localhost:5000/colleges')
             .then(res => res.json())
             .then(data => setUniversity(data))
     }, [])
@@ -35,7 +35,7 @@ const RatedUniversity = () => {
                 <div className="grid md:grid-cols-3 gap-4">
                     {
                         topThreeUniversities.map(item => <UniversityCard
-                            key={item.collegeId}
+                            key={item._id}
                             item={item}
                         ></UniversityCard>)
                     }
