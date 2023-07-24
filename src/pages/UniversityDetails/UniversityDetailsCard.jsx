@@ -32,13 +32,13 @@ const UniversityDetailsCard = () => {
                 <img className="w-full h-48 object-cover rounded-t-lg" src={collegeImage} alt={collegeName} />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-40 rounded-t-lg"></div>
                 <div className="absolute inset-x-0 bottom-0 p-4 text-white text-center font-bold">
-                    <h3 className="text-3xl font-semibold mb-2">{collegeName}</h3>
+                    <h3 className="text-3xl text-white font-semibold mb-2">{collegeName}</h3>
                     <p className="text-gray-300">College Rating: {collegeRating}</p>
                 </div>
             </div>
             <div className="p-4 bg-gray-50">
                 <p className="text-lg font-semibold mb-2">
-                    <span className="font-semibold">Admission Date:</span> <br />
+                    <span className="font-semibold text-black">Admission Date:</span> <br />
                     Starts: {startDate} <br />
                     Ends: {endDate}
                 </p>

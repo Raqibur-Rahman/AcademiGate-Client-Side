@@ -1,7 +1,8 @@
 
 import { Link } from "react-router-dom";
+import "./UniversityCard.css";
 
-const RatedUniversityCard = ({ item }) => {
+const UniversityCard = ({ item }) => {
     const { _id, collegeName, collegeImage, admissionDates, events, research, sports } = item;
 
     // Get the start and end dates from the admissionDates array
@@ -18,15 +19,15 @@ const RatedUniversityCard = ({ item }) => {
     const endDate = formatDate(end); // Format end date
 
     return (
-        <div className="border m-3 rounded-lg overflow-hidden shadow-lg bg-white">
+        <div className="university-card border m-3 rounded-lg overflow-hidden shadow-lg bg-white">
             <div className="relative">
                 <img className="w-full h-48 object-cover" src={collegeImage} alt={collegeName} />
                 
             </div>
             <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2">{collegeName}</h3>
+                <h3 className="text-xl text-black font-semibold mb-2">{collegeName}</h3>
                 <p className="">
-                    <span className="font-semibold">Admission Date:</span> <br />
+                    <span className=" text-lg font-semibold mb-2 text-black">Admission Date:</span> <br />
                     Starts: {startDate} <br />
                     Ends: {endDate}
                 </p>
@@ -73,4 +74,4 @@ const RatedUniversityCard = ({ item }) => {
     );
 };
 
-export default RatedUniversityCard;
+export default UniversityCard;

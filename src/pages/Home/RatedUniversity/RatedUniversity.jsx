@@ -32,7 +32,7 @@ const RatedUniversity = () => {
                     subHeading={"Discover Top-Ranked Institutions with Exceptional Offerings"}
                 ></SectionTitle>
 
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid md:grid-cols-3 gap-4 university-card-container">
                     {
                         topThreeUniversities.map(item => <UniversityCard
                             key={item._id}
