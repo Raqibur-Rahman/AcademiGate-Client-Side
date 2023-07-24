@@ -1,0 +1,68 @@
+/* ResearchGallary.css */
+
+/* Style for the research gallery container */
+.research-gallery-container {
+    margin-top: 40px;
+    padding: 20px;
+  }
+  
+  /* Style for the cards */
+  .card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Background color and padding for the card body */
+  .card-body {
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  /* Styling for the card title */
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Styling for the published date and author */
+  h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #666;
+  }
+  
+  /* Styling for the brief description */
+  p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  /* Styling for the "Read Now" button */
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Hover effect for the cards */
+  .card-hover-effect {
+    transition: transform 0.3s;
+  }
+  
+  .card-hover-effect:hover {
+    transform: translateY(-5px);
+  }
+  

@@ -9,7 +9,7 @@ const ImageGallary = () => {
                 subHeading={"Celebrate Success with Our Graduates"}
             ></SectionTitle>
             <div className="grid md:grid-cols-3 gap-4">
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-rose-50 shadow-xl">
                     <figure>
                         <img
                             src="https://mm.aiircdn.com/447/5ab906f2eced3.jpg"
@@ -24,7 +24,7 @@ const ImageGallary = () => {
                         </p>
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-rose-50 shadow-xl">
                     <figure>
                         <img
                             src="https://img.freepik.com/free-vector/illustration-university-graduates_53876-28468.jpg?w=740&t=st=1690188234~exp=1690188834~hmac=9cf5e3579508ca9d2e5194b15df0d9ba2d2aa1612f2a6aa01edaa82d63aaaeb3"
@@ -39,7 +39,7 @@ const ImageGallary = () => {
                         </p>
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-rose-50 shadow-xl">
                     <figure>
                         <img
                             src="https://img.freepik.com/free-vector/illustration-university-graduates_53876-28470.jpg?w=740&t=st=1690187797~exp=1690188397~hmac=0797fcfd99ecccf5c310565e8796e6102d50e19712c8c917fd8fd3cbe58ac416"
@@ -54,7 +54,7 @@ const ImageGallary = () => {
                         </p>
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-rose-50 shadow-xl">
                     <figure>
                         <img
                             src="https://img.freepik.com/free-vector/illustration-university-graduates_53876-28468.jpg?w=740&t=st=1690187543~exp=1690188143~hmac=ac89004aa5fb6ece18d843a9c7e843106b1b07bd3ac07cdc93b67fca0e98d6a5"
@@ -69,7 +69,7 @@ const ImageGallary = () => {
                         </p>
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-rose-50 shadow-xl">
                     <figure>
                         <img
                             src="https://img.freepik.com/free-vector/illustration-university-graduates_53876-28467.jpg?w=740&t=st=1690187570~exp=1690188170~hmac=449b13f7ab2d2fa4687a43edac2301300ca04997c208e8663af796f8bd2e1ef2"
