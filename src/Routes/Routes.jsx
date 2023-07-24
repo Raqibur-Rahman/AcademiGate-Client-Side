@@ -8,6 +8,9 @@ import AllColleges from "../pages/AllColleges/AllColleges";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import UniversityDetailsCard from "../pages/UniversityDetails/UniversityDetailsCard";
+import PrivateRoute from "./PrivateRoute";
+import MyCollege from "../pages/MyCollege/MyCollege";
+import Admission from "../pages/Admission/Admission";
 
 
 
@@ -39,8 +42,17 @@ export const router = createBrowserRouter([
             {
                 path: '/colleges/:id',
                 element: <UniversityDetailsCard></UniversityDetailsCard>,
-                loader: ({ params }) => fetch(`http://localhost:5000/colleges/${params.id}`)
+                loader: ({ params }) => fetch(` https://academi-gate-server-side.vercel.app/colleges/${params.id}`)
 
+            },
+            {
+                path:'/mycollege',
+                element: <PrivateRoute><MyCollege></MyCollege></PrivateRoute>
+            }
+            ,
+            {
+                path:'/admission',
+                element: <Admission></Admission>
             }
         ]
 

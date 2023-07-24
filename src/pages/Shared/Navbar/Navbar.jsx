@@ -1,8 +1,59 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { getAuth, signOut } from "firebase/auth";
+import app from "../../../firebase/firebase.config";
 
 const Navbar = () => {
+
+
+
+
+
+
+
+
+    const { user } = useContext(AuthContext);
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleHover = () => {
+        setIsHovered(!isHovered);
+    };
+
+    const auth = getAuth(app);
+    // const provider = new GoogleAuthProvider();
+
+    const handleSignOut = () => {
+        signOut(auth)
+            .then()
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     const [searchQuery, setSearchQuery] = useState("");
 
     const handleSearchInputChange = (e) => {
@@ -81,10 +132,48 @@ const Navbar = () => {
                                 <Link to="/mycollege">My College</Link>
                             </li>
                             <li>
-                                {/* Login button */}
-                                <Link to="/login">
-                                    Login
-                                </Link>
+
+
+                                {user ? (
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center">
+                                            {user.photoURL ? (
+                                                <label
+                                                    tabIndex={0}
+                                                    className="btn-ghost btn-circle avatar"
+                                                    onMouseEnter={handleHover}
+                                                    onMouseLeave={handleHover}
+                                                >
+                                                    <div className="w-10 rounded-full">
+                                                        <img src={user.photoURL} alt="" />
+                                                    </div>
+                                                    {isHovered && (
+                                                        <span className="username">
+                                                            {user.displayName ? user.displayName : <></>}
+                                                        </span>
+                                                    )}
+                                                </label>
+
+
+                                            )
+
+                                                :
+                                                null
+
+                                            }
+                                            <button onClick={handleSignOut} className="sm-btn btn-primary rounded-md">
+                                                Logout
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                ) : (
+                                    <Link to="/login">
+                                        <span className="sm-btn btn-primary rounded-lg p-1">Login</span>
+                                    </Link>
+                                )}
+
+
                             </li>
                             <div className="navbar-end">
                                 <div className="flex items-center space-x-4">
@@ -96,7 +185,7 @@ const Navbar = () => {
                                         value={searchQuery}
                                         onChange={handleSearchInputChange}
                                     />
-                                    <button className="sm-btn btn-primary rounded-md" onClick={handleSearch}>
+                                    <button className="sm-btn btn-primary rounded-lg p-1" onClick={handleSearch}>
                                         Search
                                     </button>
 
@@ -137,9 +226,66 @@ const Navbar = () => {
                                 Search
                             </button>
                             {/* Login button */}
-                            <Link to="/login">
-                                <button className="btn btn-primary">Login</button>
-                            </Link>
+
+
+
+
+
+
+
+
+                            {user ? (
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center">
+                                        {user.photoURL ? (
+                                            <label
+                                                tabIndex={0}
+                                                className="btn-ghost btn-circle avatar"
+                                                onMouseEnter={handleHover}
+                                                onMouseLeave={handleHover}
+                                            >
+                                                <div className="w-10 rounded-full">
+                                                    <img src={user.photoURL} alt="" />
+                                                </div>
+                                                {isHovered && (
+                                                    <span className="username">
+                                                        {user.displayName ? user.displayName : <></>}
+                                                    </span>
+                                                )}
+                                            </label>
+
+
+                                        )
+
+                                            :
+                                            null
+
+                                        }
+                                        <button onClick={handleSignOut} className="btn">
+                                            Logout
+                                        </button>
+                                    </div>
+                                </div>
+
+                            ) : (
+                                <Link to="/login">
+                                    <span className="btn">Login</span>
+                                </Link>
+                            )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         </div>
                     </div>
                 </div>

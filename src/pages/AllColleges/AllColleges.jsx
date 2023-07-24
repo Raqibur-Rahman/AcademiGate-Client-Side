@@ -7,7 +7,7 @@ const AllColleges = () => {
     const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:5000/colleges")
+        fetch(" https://academi-gate-server-side.vercel.app/colleges")
             .then((res) => res.json())
             .then((data) => {
                 setColleges(data);

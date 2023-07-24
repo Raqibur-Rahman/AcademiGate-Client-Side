@@ -8,7 +8,7 @@ const RatedUniversity = () => {
     const [universities, setUniversity] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/colleges')
+        fetch('https://academi-gate-server-side.vercel.app/colleges')
             .then(res => res.json())
             .then(data => setUniversity(data))
     }, [])
