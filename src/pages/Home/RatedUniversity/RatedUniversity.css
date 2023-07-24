@@ -1,0 +1,17 @@
+/* RatedUniversity.css */
+
+/* Styling for the university card container */
+.university-card-container {
+    margin-top: 40px;
+}
+
+/* Hover effect for the university card */
+.university-card {
+    transition: transform 0.3s;
+}
+
+.university-card:hover {
+    transform: translateY(-5px);
+}
+
+
